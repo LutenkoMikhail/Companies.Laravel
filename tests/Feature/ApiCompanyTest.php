@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
 
@@ -24,7 +25,13 @@ class ApiCompanyTest extends TestCase
     {
         $response = $this->json('GET', route('api.v1.companies'));
 
-        $response->assertJson(fn(AssertableJson $json) => $json->hasAll(['Company', 'links', 'meta']));
+        $response->assertJson(fn(AssertableJson $json) => $json->hasAll(
+            [
+                Config::get('constants.json.company'),
+                Config::get('constants.json.links'),
+                Config::get('constants.json.meta')
+            ]
+        ));
 
     }
 

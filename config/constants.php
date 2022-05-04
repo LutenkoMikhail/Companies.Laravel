@@ -8,4 +8,10 @@ return [
             'paginate_company_25' => 25,
         ],
     ],
+    'json' => [
+        'company' => 'Company',
+        'links' => 'links',
+        'meta' => 'meta',
+        'not_found' => 'Not Found',
+    ]
 ];

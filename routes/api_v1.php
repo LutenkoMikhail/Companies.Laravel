@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
 
@@ -10,5 +11,5 @@ Route::get('/companies/edrpou/{edrpou}', [\App\Http\Controllers\Api\V1\CompanyCo
 Route::get('/companies/name/{name}', [\App\Http\Controllers\Api\V1\CompanyController::class, 'companySearchName'])->name('api.v1.company.name');
 
 Route::fallback(function () {
-    return response()->json(['Not Found'], 404);
+    return response()->json([Config::get('constants.json.not_found')], 404);
 });
