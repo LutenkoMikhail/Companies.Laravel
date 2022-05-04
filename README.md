@@ -18,6 +18,7 @@
 
 #### Выполнить команду:
     - [x] composer install .
+    - [x] php artisan key:generate.
     - [x] Переименовать файл .env.example в файл .env и настроить подключение к базе данных и пр.
     - [x] php artisan migrate --seed.
     - [x] php artisan test
